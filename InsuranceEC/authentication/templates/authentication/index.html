@@ -1,0 +1,29 @@
+{% extends "base.html" %}
+
+{% block title %}
+InsuranceEasyClaim
+{% endblock %}
+
+{% block content %}
+
+    {% for message in messages %}
+
+    <h1>Welcome to InsuranceEasyClaim!</h1>
+    <div class="alert alert-{{ message.tags }} alert-dismissible fade show" role="alert">
+    <strong>Message:</strong> {{ message }}
+    <button type="button" class="close" data-dismiss="alert" aria-label="close">
+    <span aria-hidden="true">&times;</span>
+    </button>
+
+    {% endfor %}
+
+    {% if user.is_authenticated%}
+    <h3>Hello {{ fname }}</h3>
+    <h4>You're successfully logged in</h4>
+
+    {% else %}
+    <button type = "submit"><a href="/signup">SignUp</a></button>
+    <button type = "submit"><a href="/signin">SignIn</a></button>
+    {% endif %}
+
+{% endblock %}
